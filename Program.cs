@@ -35,13 +35,13 @@ namespace AATF_15
         public const uint stats_gold = 99;
         public const uint stats_silver = 88;
         public const uint stats_regular = 77;
-        public const uint stats_goalkeeper = 77;
+        public const uint stats_goalkeeper = 80;
 
         // Summer 2015 Ruleset - All players above 189cm in height get a variable stat nerf
         public const uint stats_gold_system1 = 94;
         public const uint stats_silver_system1 = 84;
         public const uint stats_regular_system1 = 74;
-        public const uint stats_goalkeeper_system1 = 74;
+        public const uint stats_goalkeeper_system1 = 77;
 
         public const uint form_gold = 8;
         public const uint form_silver = 8;
@@ -90,20 +90,18 @@ namespace AATF_15
         public const uint system1_height_bracket_2_limit = 1;
         public const uint system1_height_bracket_3_limit = 2;
         public const uint system1_height_bracket_4_limit = 6;
-        public const uint system1_height_limit_total = 4200;
+        public const uint system1_height_limit_total = 4220;
 
         // System 2
         public const uint system2_height_bracket_1_limit = 0;
         public const uint system2_height_bracket_2_limit = 0;
         public const uint system2_height_bracket_3_limit = 0;
         public const uint system2_height_bracket_4_limit = 10;
-        public const uint system2_height_limit_total = 4165;
+        public const uint system2_height_limit_total = 4185;
 
         // Both
         public const uint height_bracket_5_limit = 7;
-        public const uint height_bracket_6_limit = 3;
-        public const uint height_bracket_7_limit = 2;
-        public const uint height_bracket_8_limit = 1;
+        public const uint height_bracket_6_limit = 6;
 
         // Age Abuse
         public const uint age_maximum = 50;
