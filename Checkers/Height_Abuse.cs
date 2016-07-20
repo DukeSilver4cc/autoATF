@@ -15,8 +15,6 @@ namespace AATF_15
             public uint bracket_4;
             public uint bracket_5;
             public uint bracket_6;
-            public uint bracket_7;
-            public uint bracket_8;
 
             public int height_total;
         }
@@ -31,8 +29,6 @@ namespace AATF_15
             heights.bracket_4 = 0;
             heights.bracket_5 = 0;
             heights.bracket_6 = 0;
-            heights.bracket_7 = 0;
-            heights.bracket_8 = 0;
             heights.height_total = 0;
 
             uint system1_stats = 0;
@@ -41,6 +37,12 @@ namespace AATF_15
             // Check heights of all players in team
             foreach (player line in squad.team_players)
             {
+                // Set heights for players under 175cm to 175cm for total height calculation
+                if(line.height < constants.height_bracket_6)
+                {
+                    line.height = height_bracket_6;
+                }
+                
                 // Add height to running total for team
                 heights.height_total += line.height;
 
@@ -84,14 +86,6 @@ namespace AATF_15
                 else if (line.height >= constants.height_bracket_6)
                 {
                     heights.bracket_6++;
-                }
-                else if (line.height >= constants.height_bracket_7)
-                {
-                    heights.bracket_7++;
-                }
-                else if (line.height >= constants.height_bracket_8)
-                {
-                    heights.bracket_8++;
                 }
                 else if (line.height >= constants.height_minimum_pes)
                 {
@@ -354,20 +348,6 @@ namespace AATF_15
             {
                 Console.WriteLine("HEIGHT ABUSE:\n" + squad.team_name + " has too few players in the " + constants.height_bracket_6 + "-" + (constants.height_bracket_5 - 1) + " bracket");
                 Console.WriteLine("\t\t (Has " + heights.bracket_6 + " out of " + constants.height_bracket_6_limit + ")");
-                variables.errors++;
-            }
-
-            if (heights.bracket_7 < constants.height_bracket_7_limit)
-            {
-                Console.WriteLine("HEIGHT ABUSE:\n" + squad.team_name + " has too few players in the " + constants.height_bracket_7 + "-" + (constants.height_bracket_6 - 1) + " bracket");
-                Console.WriteLine("\t\t (Has " + heights.bracket_7 + " out of " + constants.height_bracket_7_limit + ")");
-                variables.errors++;
-            }
-
-            if (heights.bracket_8 < constants.height_bracket_8_limit)
-            {
-                Console.WriteLine("HEIGHT ABUSE:\n" + squad.team_name + " has too few players in the " + constants.height_bracket_8 + "-" + (constants.height_bracket_7 - 1) + " bracket");
-                Console.WriteLine("\t\t (Has " + heights.bracket_8 + " out of " + constants.height_bracket_8_limit + ")");
                 variables.errors++;
             }
         }
